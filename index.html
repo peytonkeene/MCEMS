@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispatch Narrative Generator</title>
+    <title>EMS Narrative Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <form id="inputForm">
-        <label for="emergencyCode">EC (Emergency Code):</label>
-        <select id="emergencyCode">
+    <h2>Dispatch</h2>
+   <form id="inputForm">
+        <label for="emergenceCare">EC (Emergence Care):</label>
+        <select id="emergenceCare">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -24,10 +25,49 @@
             <option value="12">12</option>
             <option value="13">13</option>
             <option value="14">14</option>
-        </select><br><br>
+        </select>
+        
+        <label>was dispatched and responded</label>
+        <select id="responseType">
+            <option value="emergent">emergent</option>
+            <option value="nonemergent">nonemergent</option>
+        </select>
 
-        <label for="dispatchDescription">What was it dispatched as?</label>
-        <textarea id="dispatchDescription" rows="4" cols="50"></textarea><br>
+        <label>to the above address for a:</label>
+        <input type="text" id="dispatchDescription" style="width: 300px;"><br>
+
+    <h2>Assessment</h2>
+    <form id="inputForm">
+        <!-- Existing Dispatch Form Elements -->
+        <p>Upon EMS arrival, the patient was found to be 
+        <select id="patientPosition">
+            <option value="standing">standing</option>
+            <option value="sitting">sitting</option>
+            <option value="lying">lying</option>
+        </select>
+        <input type="text" id="additionalInfo" placeholder="additional details" style="width: 300px;"> The patient is alert and oriented x
+        <select id="orientationLevel">
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>. The patient's GCS is
+        <select id="gcs">
+            <option value="15">15</option>
+            <option value="14">14</option>
+            <option value="13">13</option>
+            <option value="12">12</option>
+            <option value="11">11</option>
+            <option value="10">10</option>
+            <option value="9">9</option>
+            <option value="8">8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+        </select>. The patient appears 
+        <input type="text" id="patientAppearance" placeholder="describe appearance" style="width: 300px;">.</p>
 
         <button type="button" onclick="generateNarrative()">Generate Narrative</button>
     </form>
